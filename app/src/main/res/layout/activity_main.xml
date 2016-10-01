@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/scrollView" >
 
@@ -31,27 +31,42 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logo" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nama Pemesan"
-        android:id="@+id/textView2" />
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <EditText
+        android:hint="Nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextNama" />
 
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:hint="Jumlah kue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextJumlah"
+        android:inputType="numberSigned" />
+
+</android.support.design.widget.TextInputLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jumlah"
-        android:id="@+id/textViewJumlah" />
+        android:text="Ukuran cupcakes"
+        android:id="@+id/textView2" />
 
-    <EditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText" />
+        android:entries="@array/ukuran"
+        android:id="@+id/spinnerUkuran" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +76,8 @@
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/rgRasa">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -117,6 +133,15 @@
         android:layout_height="wrap_content"
         android:text="OK"
         android:id="@+id/buttonOK"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewHasil"
+        tools:text="Hasil"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
