@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity
         if(isValid())
         {
             int Jumlah = Integer.parseInt(etJumlah.getText().toString());
-            tvHasil.setText(nama +" memesan cupcakes berjumlah "+Jumlah+" buah"+" berukuran "+ ukuran + " rasa "+ hasil+" "+hasiltp);
+            tvHasil.setText(nama +" telah memesan cupcakes berjumlah "+Jumlah+" buah"+" berukuran "+ ukuran + " rasa "+ hasil+" "+hasiltp);
         }
     }
 
