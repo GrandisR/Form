@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
         cbC = (CheckBox) findViewById(R.id.checkBoxC);
         cbN = (CheckBox) findViewById(R.id.checkBoxN);
         spUkuran = (Spinner) findViewById(R.id.spinnerUkuran);
+        tvHasil = (TextView) findViewById(R.id.textViewHasil);
         bOK = (Button) findViewById(R.id.buttonOK);
 
         bOK.setOnClickListener(new View.OnClickListener()
@@ -48,14 +49,21 @@ public class MainActivity extends AppCompatActivity
     private void doProcess()
     {
         String nama = etNama.getText().toString();
-        String hasil = "Topping yang Anda pilih :\n";
-        int startlen = hasil.length();
-        if(cbCc.isChecked()) hasil+=cbCc.getText()+"\n";
-        if(cbC.isChecked()) hasil+=cbC.getText()+"\n";
-        if(cbN.isChecked()) hasil+=cbN.getText()+"\n";
+        String hasil = null;
+        String ukuran = spUkuran.getSelectedItem().toString();
+        String hasiltp = "dengan toping ";
+        int startlen = hasiltp.length();
 
-        if(hasil.length()==startlen) hasil+="Tidak ada pada pilihan";
+//        int startlen = 0;
+        if (hasil != null) {
+//            startlen = hasil.length();
+        } else {
+            if (cbCc.isChecked()) hasiltp += cbCc.getText() + "\n";
+            if (cbC.isChecked()) hasiltp += cbC.getText() + "\n";
+            if (cbN.isChecked()) hasiltp += cbN.getText() + "\n";
 
+            if (hasiltp.length() == startlen) hasil += "Tidak ada pada pilihan";
+        }
         if(rgRasa.getCheckedRadioButtonId() !=-1)
         {
             RadioButton rb = (RadioButton)
@@ -65,8 +73,8 @@ public class MainActivity extends AppCompatActivity
 
         if(isValid())
         {
-            int jumlah = Integer.parseInt(etJumlah.getText().toString());
-            tvHasil.setText(nama +" memesan cupcakes berjumlah "+jumlah+" buah"+" dengan ukuran "+ spUkuran.getSelectedItem().toString());
+            int Jumlah = Integer.parseInt(etJumlah.getText().toString());
+            tvHasil.setText(nama +" memesan cupcakes berjumlah "+Jumlah+" buah"+" berukuran "+ ukuran + " rasa "+ hasil+" "+hasiltp);
         }
     }
 
@@ -104,14 +112,12 @@ public class MainActivity extends AppCompatActivity
             etJumlah.setError(null);
         }
 
-        if(hasil==null)
-        {
+        /*if(hasil==null)
             tvHasil.setText("Belum memilih rasa");
-        }
         else
         {
             tvHasil.setText("Rasa kue : "+hasil);
-        }
+        }*/
 
         return valid;
     }
